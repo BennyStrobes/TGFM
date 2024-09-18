@@ -1,5 +1,4 @@
 import sys
-sys.path.remove('/n/app/python/3.7.4-ext/lib/python3.7/site-packages')
 import pandas as pd
 import numpy as np 
 import os 
