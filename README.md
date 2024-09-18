@@ -11,3 +11,19 @@ git clone https://github.com/BennyStrobes/TGFM
 cd TGFM
 ```
 
+
+## TGFM environment with PIP
+
+The version of TGFM run in the manuscript used the following python packages installed via PIP:
+- Python = 3.7.4
+- pandas = 1.3.5
+- numpy = 1.21.6
+- rpy2 = 3.5.1 
+- pandas_plink = 2.2.9
+- scipy = 1.7.3
+
+Along with R (4.0.1) and susieR (0.12.35)
+
+
+
+
