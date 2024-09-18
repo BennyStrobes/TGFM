@@ -34,6 +34,6 @@ conda env create -f environment.yml
 conda activate TGFM
 ```
 
-The packages in the conda installation are slightly more updated
+The packages in the conda environment.yml are slightly newer versions of the packages used in the paper / PIP installation above. Importantly, the TGFM output was unchanged in limited simulations.
 
 
