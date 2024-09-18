@@ -30,7 +30,7 @@ TGFM was run for the manuscript using the following python packages installed vi
 
 Along with R (4.0.1) and susieR (0.12.35)
 
-### TGFM environment with conda environment
+### TGFM environment with conda
 
 An alternative (and easier) package installation strategy can be achieved with conda:
 ```
