@@ -11,10 +11,12 @@ git clone https://github.com/BennyStrobes/TGFM
 cd TGFM
 ```
 
+## Generating TGFM environment
+The TGFM environment can be installed using the following two approaches:
 
-## TGFM environment with PIP
+### TGFM environment with PIP
 
-The version of TGFM run in the manuscript used the following python packages installed via PIP:
+TGFM was run in the manuscript using the following python packages installed via PIP:
 - Python = 3.7.4
 - pandas = 1.3.5
 - numpy = 1.21.6
@@ -24,6 +26,14 @@ The version of TGFM run in the manuscript used the following python packages ins
 
 Along with R (4.0.1) and susieR (0.12.35)
 
+### TGFM environment with conda environment
 
+An alternative (and easier) package installation strategy can be achieved with conda:
+```
+conda env create -f environment.yml
+conda activate TGFM
+```
+
+The packages in the conda installation are slightly more updated
 
 
