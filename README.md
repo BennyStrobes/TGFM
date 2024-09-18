@@ -18,12 +18,6 @@ First, create the TGFM package environment (see below). Then check out the wiki 
 ## Create TGFM environment
 The TGFM environment can be installed using the following two approaches:
 
-## Create TGFM environment
-The TGFM environment can be installed using the following two approaches:
-
-## Create TGFM environment
-The TGFM environment can be installed using the following two approaches:
-
 ### TGFM environment with PIP
 
 TGFM was run for the manuscript using the following python packages installed via PIP:
