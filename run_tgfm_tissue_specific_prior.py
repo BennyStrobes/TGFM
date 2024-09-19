@@ -532,7 +532,7 @@ parser.add_argument('--tgfm-parallel-job-identifier_file', default='None', type=
 parser.add_argument('--tgfm-without-sampling-output', default='None', type=str,
                     help='Output stem of results of TGFM without sampling analysis')
 parser.add_argument('--num-iterations', default=400, type=int,
-                    help='Number of posterior samples to randomly draw from each gene-tissue pair')
+                    help='Number of iterations to run')
 parser.add_argument('--num-posterior-samples', default=100, type=int,
                     help='Number of posterior samples to randomly draw from each gene-tissue pair')
 parser.add_argument('--max-components-per-window', default=None, type=int,

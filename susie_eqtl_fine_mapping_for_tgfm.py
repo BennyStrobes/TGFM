@@ -426,7 +426,7 @@ parser.add_argument('--min-cis-snps-per-gene', default=10, type=int,
 parser.add_argument('--filter-strand-ambiguous', default=False, action='store_true',
                     help='Filter out strand ambiguous variants')
 parser.add_argument('--eqtl-sumstat', default='None', type=str,
-                    help='File containing GWAS summary statistics. This is used as we only include variants in a gene model if those variants are found in our GWAS study')
+                    help='File containing eQTL summary statistics.')
 parser.add_argument('--gwas-sumstat', default='None', type=str,
                     help='File containing GWAS summary statistics. This is used as we only include variants in a gene model if those variants are found in our GWAS study')
 parser.add_argument('--out', default='None', type=str,
