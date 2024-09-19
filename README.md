@@ -13,7 +13,7 @@ cd TGFM
 ```
 
 ## Running TGFM
-First, create the TGFM package environment (see below). Then check out the wiki page for further documentation.
+First, create the TGFM package environment (see below). Then check out the [wiki](https://github.com/BennyStrobes/TGFM/wiki) page for further documentation.
 
 ## Create TGFM environment
 The TGFM environment can be installed using the following two approaches:
