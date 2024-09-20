@@ -18,7 +18,7 @@ git clone https://github.com/BennyStrobes/TGFM
 cd TGFM
 ```
 
-Then, create the TGFM package environment (see below). Then check out the [wiki](https://github.com/BennyStrobes/TGFM/wiki) page for further documentation.
+Then, create the TGFM package environment (see below). Then check out the [wiki](https://github.com/BennyStrobes/TGFM/wiki) page step-by-step instructions on running TGFM.
 
 ## Create TGFM environment
 The TGFM environment can be installed using the following two approaches:
