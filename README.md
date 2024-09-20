@@ -2,7 +2,7 @@
 
 TGFM is a package to fine-map causal tissues and genes at disease-associated loci based on the integration of GWAS dat and multi-tissue-eQTL data. See pre-print to paper here:
 
-<img style="display:block;margin:auto" width="700" height="300" src="./locus_plot2.png">
+<img style="display:block;margin:auto" width="700" height="193.32" src="./locus_plot2.png">
 
 
 [Benjamin J. Strober, Martin Jinye Zhang, Tiffany Amariuta, Jordan Rossen, Alkes L. Price. Fine-mapping causal tissues and genes at disease-associated loci. medRxiv, 2023.](https://www.medrxiv.org/content/10.1101/2023.11.01.23297909v3)
