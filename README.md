@@ -9,14 +9,16 @@ TGFM is a package to fine-map causal tissues and genes at disease-associated loc
 
 Contact Ben Strober (bstrober3@gmail.com) with any questions.
 
+
+## Running TGFM
+
 To use, clone the repository: 
 ```
 git clone https://github.com/BennyStrobes/TGFM
 cd TGFM
 ```
 
-## Running TGFM
-First, create the TGFM package environment (see below). Then check out the [wiki](https://github.com/BennyStrobes/TGFM/wiki) page for further documentation.
+Then, create the TGFM package environment (see below). Then check out the [wiki](https://github.com/BennyStrobes/TGFM/wiki) page for further documentation.
 
 ## Create TGFM environment
 The TGFM environment can be installed using the following two approaches:
