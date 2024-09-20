@@ -11,6 +11,25 @@ def fill_in_causal_effect_size_matrix(null_mat, bs_eqtls_pmces_sparse):
 	return null_mat
 
 
+def compute_expected_pips_from_sampler_phis(gene_phis):
+	# Number of samples
+	n_bs = gene_phis[0].shape[0]
+	# Number of genes
+	n_genes = gene_phis[0].shape[1]
+	# Number of components
+	LL = len(gene_phis)
+
+	# Initialize per-sample gene PIPs
+	gene_pips = np.ones((n_bs, n_genes))
+	# Fill in per sample gene PIPs
+	for component_iter in range(LL):
+		gene_pips = gene_pips*(1.0 - gene_phis[component_iter])
+	gene_pips = 1.0 - gene_pips
+
+	# Compute Expected value across samples
+	expected_gene_pips = np.mean(gene_pips,axis=0)
+
+	return expected_gene_pips
 
 
 class TGFM(object):
@@ -25,15 +44,12 @@ class TGFM(object):
 			tgfm_data_obj
 		"""
 
-		print('###############################')
-		print('TGFM')
-		print('###############################')
-
 		#####################
 		# Initialize variables
+		print('Initialize variables')
 		self.initialize_variables(tgfm_data_obj, phi_init, mu_init, mu_var_init)
-		print('Initialization complete')
 
+		print('Iterative optimization')
 		# Begin iterative inference
 		for itera in range(self.max_iter):
 			# Update alpha (ie predicted effect of each gene on the trait) and beta (ie predicted effect of variant on trait)
@@ -45,10 +61,51 @@ class TGFM(object):
 			# Keep track of the number of iterations
 			self.iter = self.iter + 1
 
-		# Done with iterative inference
 		# COMPUTE PIPS for each bootstrap
-		print('computing pips')
-		self.compute_pips()  # Make this include both gene-tissue pips and gene pips
+		print('Compute pips')
+		self.compute_pips()  # Compute PIPs for gene-tissue pairs and non-mediated variants
+		self.compute_gene_pips()  # Compute Gene PIPs
+
+		return
+
+	def compute_gene_pips(self):
+		# Extract unique gene names
+		unique_gene_names = np.unique(self.gene_names)
+
+		# Create mapping from gene name to all gene-tissue pair level indices that correspond to the gne
+		gene_to_indices = {}
+		for ii, gene_name in enumerate(self.gene_names):
+			if gene_name not in gene_to_indices:
+				gene_to_indices[gene_name] = []
+			gene_to_indices[gene_name].append(ii)
+
+		# Total number of unique genes
+		n_genes = len(gene_to_indices)
+		# Ordered list of genes
+		ordered_genes = [*gene_to_indices]
+		# Number of components
+		LL = len(self.alpha_phis)
+
+		# Array to keep track of gene_phis (gene inclusion probabilities)
+		gene_phis = []
+
+		# Loop through components
+		for ll in range(LL):
+			# Initialize gene_phi for this component
+			gene_phi = np.zeros((self.alpha_phis[ll].shape[0], n_genes))
+
+			# Loop through unique genes
+			for ii,gene_name in enumerate(ordered_genes):
+				gene_phi[:, ii] = np.sum(self.alpha_phis[ll][:, gene_to_indices[gene_name]],axis=1)
+			gene_phis.append(gene_phi)
+
+		# Compute per-sample gene PIPs, and then average across samples
+		expected_gene_pips= compute_expected_pips_from_sampler_phis(gene_phis)
+
+		# Create mapping from gene name to gene
+		self.gene_name_to_gene_pip = {}
+		for ii, gene_name in enumerate(ordered_genes):
+			self.gene_name_to_gene_pip[gene_name] = expected_gene_pips[ii]
 
 		return
 
@@ -181,6 +238,8 @@ class TGFM(object):
 		self.K = len(tgfm_data_obj['variants'])
 		# Gene-tissue names names
 		self.gene_tissue_pairs = tgfm_data_obj['gene_tissue_pairs']
+		# Gene names
+		self.gene_names = tgfm_data_obj['genes']
 		# GWAS sample size
 		self.NN = tgfm_data_obj['gwas_sample_size']
 

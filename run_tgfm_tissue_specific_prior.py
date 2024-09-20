@@ -527,7 +527,7 @@ parser.add_argument('--trait-name', default='None', type=str,
                     help='Name of GWAS trait')
 parser.add_argument('--tissue-summary-file', default='None', type=str,
                     help='File containing information on each tissue and info on where that tissues gene models are stored')
-parser.add_argument('--tgfm-parallel-job-identifier_file', default='None', type=str,
+parser.add_argument('--tgfm-parallel-job-identifier-file', default='None', type=str,
                     help='File containing information on the names of the parallel runs of the tgfm_without_sampling analysis')
 parser.add_argument('--tgfm-without-sampling-output', default='None', type=str,
                     help='Output stem of results of TGFM without sampling analysis')
@@ -584,7 +584,7 @@ variant_prob_bootstrapped_distr, tissue_probs_bootstrapped_distr = learn_iterati
 # Print to output
 variant_gene_distr_prior_output_file = args.out + '_tissue_specific_prior_summary.txt'
 t = open(variant_gene_distr_prior_output_file,'w')
-t.write('element_name\tmean_prior\tbootstrapped_prior_distribution\n')
+t.write('element_class\tmean_prior\tbootstrapped_prior_distribution\n')
 t.write('variant\t' + str(np.mean(variant_prob_bootstrapped_distr)) + '\t' + ';'.join(variant_prob_bootstrapped_distr.astype(str)) + '\n')
 for tiss_iter, tissue_name in enumerate(tissue_names):
 	t.write(tissue_name + '\t' + str(np.mean(tissue_probs_bootstrapped_distr[tiss_iter,:])) + '\t' + ';'.join(tissue_probs_bootstrapped_distr[tiss_iter,:].astype(str)) + '\n')

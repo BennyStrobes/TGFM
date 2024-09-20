@@ -165,6 +165,7 @@ def merge_two_bootstrapped_tgfms_based_on_elbo(tgfm_obj, tgfm_obj2, variant_z_ve
 
 	# Recompute PIPs
 	tgfm_obj.compute_pips()
+	tgfm_obj.compute_gene_pips()
 
 	return tgfm_obj
 
@@ -185,6 +186,7 @@ def tgfm_inference_shell(tgfm_data, gene_log_prior, var_log_prior, n_components,
 	# And then using the output of that fine-mapping as initialization for the second round of TGFM. 
 	# In practice, this reduced false positives in simulations (presumably caused by incomplete maximization of the variational objective)
 	if np.max(np.max(tgfm_obj.expected_alpha_pips)) > gene_tissue_pip_threshold:
+		print('running alternative initialization')
 
 		# Run SuSiE with only variants to create initialization for second run of tgfm
 		susie_variant_only = susieR_pkg.susie_rss(z=variant_z.reshape((len(variant_z),1)), R=tgfm_data['reference_ld'], n=tgfm_data['gwas_sample_size'], L=n_components, estimate_residual_variance=False)
@@ -334,6 +336,22 @@ def filter_pips_to_middle_genetic_elements(genetic_element_pips, genetic_element
 	return ordered_middle_pips, ordered_middle_names
 
 
+def write_variant_pips_to_output(t_var, window_name, variant_names, variant_pips, middle_genetic_elements):
+	# Loop through non-mediated variants
+	for var_index, variant in enumerate(variant_names):
+		
+		# Get pip of this non-mediated variant
+		variant_pip = variant_pips[var_index]
+
+		# Throw out variants not in middle of 1 MB region
+		if variant not in middle_genetic_elements:
+			continue
+
+		# Write gene-tissue pair pip to output
+		t_var.write(window_name + '\t' + variant + '\t' + str(variant_pip) + '\n')
+
+	return t_var
+
 def write_gene_tissue_pair_pips_to_output(t_gt, window_name, gt_pairs, gt_pips, middle_genetic_elements):
 	# Loop through gene-tissue pairs
 	for gt_index, gt_pair in enumerate(gt_pairs):
@@ -350,7 +368,22 @@ def write_gene_tissue_pair_pips_to_output(t_gt, window_name, gt_pairs, gt_pips, 
 
 	return t_gt
 
+def write_gene_pips_to_output(t_g, window_name, gene_names, gene_name_to_gene_pip, middle_gene_indices):
+	# Get unique genes names in the middle of the 1 MB region
+	unique_genes = np.unique(gene_names[middle_gene_indices])
 
+	pips = []
+	# Loop through middle genes
+	for gene_name in unique_genes:
+
+		# Extract gene PIP
+		gene_pip = gene_name_to_gene_pip[gene_name]
+		pips.append(gene_pip)
+
+		# Write Gene PIP to output
+		t_g.write(window_name + '\t' + gene_name + '\t' + str(gene_pip) + '\n')
+
+	return t_g, unique_genes, np.asarray(pips)
 
 
 
@@ -374,6 +407,8 @@ parser.add_argument('--gene-tissue-pip-threshold', default=0.2, type=float,
                     help='Threshold used by TGFM to run TGFM with alternative initializations')
 parser.add_argument('--parallel-job-identifier', default='None', type=str,
                     help='String corresponding to name of this parallel run')
+parser.add_argument('--save-sampled-phis', default=False, action='store_true',
+                    help='Boolean on whether or not to save TGFM sampled inclusion probabilities. They take up a lot of memory so default is False')
 parser.add_argument('--out', default='None', type=str,
                     help='Output stem to print tgfm results to')
 args = parser.parse_args()
@@ -406,9 +441,23 @@ gt_output_file = args.out + '_' + args.parallel_job_identifier + '_gene_tissue_p
 t_gt = open(gt_output_file,'w')
 t_gt.write('window_name\tgene-tissue-pair\tPIP\n')
 
+# Open gene summary file handle
+gt_output_file = args.out + '_' + args.parallel_job_identifier + '_gene_tgfm_pip_summary.txt'
+t_g = open(gt_output_file,'w')
+t_g.write('window_name\tgene\tPIP\n')
+
+# Open non-mediated variant summary file handle
+var_output_file = args.out + '_' + args.parallel_job_identifier + '_nonmed_variant_tgfm_pip_summary.txt'
+t_var = open(var_output_file,'w')
+t_var.write('window_name\tvariant\tPIP\n')
+
 
 # Loop through windows
 for window_iter in range(n_windows):
+
+	print('###############################')
+	print('TGFM')
+	print('###############################')
 
 	##############################
 	# Extract relevent data corresponding to this window
@@ -416,6 +465,7 @@ for window_iter in range(n_windows):
 	data = tgfm_input_data[window_iter, :]
 	# Name of window
 	window_name = data[0]
+
 	# LD file
 	ld_file = data[1]
 	# TGFM input data
@@ -493,35 +543,47 @@ for window_iter in range(n_windows):
 		t_pip.write(window_name + '\t' + 'no_genetic_elements_pass_pip_threshold\tNA\n')
 	t_pip.flush()	# Write to credible set output
 
-	# Write gene-tissue pairs to output
+	# Write gene-tissue pair PIPs to output
 	t_gt = write_gene_tissue_pair_pips_to_output(t_gt, window_name, tgfm_data['gene_tissue_pairs'], tgfm_obj.expected_alpha_pips, middle_genetic_elements)
 	t_gt.flush()
+
+	# Write non-mediated variant PIPs to output
+	t_var = write_variant_pips_to_output(t_var, window_name, tgfm_data['variants'], tgfm_obj.expected_beta_pips, middle_genetic_elements)
+	t_var.flush()
+
+
+	# Write gene PIPs to output
+	t_g, ordered_middle_genes, ordered_middle_gene_pips = write_gene_pips_to_output(t_g, window_name, tgfm_data['genes'], tgfm_obj.gene_name_to_gene_pip, tgfm_data['middle_gene_indices'])
+	t_g.flush()
 
 	# Save all TGFM results to pkl
 	tgfm_results = {}
 	tgfm_results['variants'] = tgfm_data['variants']
 	tgfm_results['gene_tissue_pairs'] = tgfm_data['gene_tissue_pairs']
-	tgfm_results['genes'] = tgfm_data['genes']
-	tgfm_results['tissues'] = tgfm_data['tissues']
-	tgfm_results['alpha_phis'] = tgfm_obj.alpha_phis
-	tgfm_results['alpha_mus'] = tgfm_obj.alpha_mus
-	tgfm_results['alpha_vars'] = tgfm_obj.alpha_vars
-	tgfm_results['beta_phis'] = tgfm_obj.beta_phis
-	tgfm_results['expected_alpha_pips'] = tgfm_obj.expected_alpha_pips
-	tgfm_results['expected_beta_pips'] = tgfm_obj.expected_beta_pips
+	tgfm_results['gene_tissue_pair_genes'] = tgfm_data['genes']
+	tgfm_results['gene_tissue_pair_tissues'] = tgfm_data['tissues']
+	tgfm_results['tgfm_gene_tissue_pips'] = tgfm_obj.expected_alpha_pips
+	tgfm_results['tgfm_non_mediated_variant_pips'] = tgfm_obj.expected_beta_pips
+	tgfm_results['middle_genes'] = ordered_middle_genes
+	tgfm_results['tgfm_middle_gene_pips'] = ordered_middle_gene_pips
 	tgfm_results['nominal_twas_z'] = tgfm_obj.nominal_twas_z
 	tgfm_results['middle_variant_indices'] = tgfm_data['middle_variant_indices']
-	tgfm_results['middle_gene_indices'] = tgfm_data['middle_gene_indices']
-	
+	tgfm_results['middle_gene_tissue_indices'] = tgfm_data['middle_gene_indices']
+	# Store sampled phis if requested
+	if args.save_sampled_phis:
+		tgfm_results['sampled_gene_phis'] = tgfm_obj.alpha_phis
+		tgfm_results['sampled_variant_phis'] = tgfm_obj.beta_phis
 
-	# Write pickle file
+
+	# Write window pickle file
 	window_tgfm_output_file = args.out + '_' + window_name + '_tgfm_results.pkl'
 	g = open(window_tgfm_output_file, "wb")
 	pickle.dump(tgfm_results, g)
 	g.close()
 
 
-
 # Close file handles
 t_pip.close()
 t_gt.close()
+t_g.close()
+t_var.close()
