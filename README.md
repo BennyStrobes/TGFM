@@ -9,6 +9,9 @@ TGFM is a package to fine-map causal tissues and genes at disease-associated loc
 
 Contact Ben Strober (bstrober3@gmail.com) with any questions.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13823621.svg)](https://doi.org/10.5281/zenodo.13823621)
+
+
 
 ## Running TGFM
 
