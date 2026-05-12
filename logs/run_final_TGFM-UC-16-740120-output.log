@@ -1,0 +1,48 @@
+Processing chunk 16...
+###############################
+TGFM
+###############################
+Finished processing final TGFM
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@node-14-27>
+Subject: Job 740120[16]: <run_final_TGFM_UC[1-50]> in cluster <farm22> Done
+
+Job <run_final_TGFM_UC[1-50]> was submitted from host <farm22-head2> by user <bh18> in cluster <farm22> at Thu Apr 30 14:08:19 2026
+Job was executed on host(s) <node-14-27>, in queue <long>, as user <bh18> in cluster <farm22> at Thu Apr 30 14:11:22 2026
+</nfs/users/nfs_b/bh18> was used as the home directory.
+</lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM> was used as the working directory.
+Started at Thu Apr 30 14:11:22 2026
+Terminated at Thu Apr 30 14:11:36 2026
+Results reported at Thu Apr 30 14:11:36 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+bash execution_scripts_BH/run_TGFM-BH-MCP.sh -t UC
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10.43 sec.
+    Max Memory :                                 97 MB
+    Average Memory :                             75.50 MB
+    Total Requested Memory :                     30000.00 MB
+    Delta Memory :                               29903.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                13
+    Run time :                                   14 sec.
+    Turnaround time :                            197 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <logs/run_final_TGFM-UC-16-740120-error.log> for stderr output of this job.
+

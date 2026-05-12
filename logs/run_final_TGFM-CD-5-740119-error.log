@@ -1,0 +1,24 @@
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:243: RuntimeWarning: overflow encountered in divide
+  un_normalized_lv_beta_weights = expected_log_variant_pi[:,bs_iter] - (.5*np.log(beta_component_variances[bs_iter][l_index])) + (.5*np.square(mixture_beta_mu)/mixture_beta_var) + (.5*np.log(mixture_beta_var))
+/opt/view/lib/python3.10/site-packages/scipy/special/_logsumexp.py:111: RuntimeWarning: overflow encountered in exp
+  tmp = np.exp(a - a_max)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:262: RuntimeWarning: invalid value encountered in subtract
+  mixture_beta_phi = np.exp(un_normalized_lv_beta_weights-normalizing_term)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:275: RuntimeWarning: invalid value encountered in subtract
+  ww = np.exp(lbf - maxlbf)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:243: RuntimeWarning: overflow encountered in square
+  un_normalized_lv_beta_weights = expected_log_variant_pi[:,bs_iter] - (.5*np.log(beta_component_variances[bs_iter][l_index])) + (.5*np.square(mixture_beta_mu)/mixture_beta_var) + (.5*np.log(mixture_beta_var))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:279: RuntimeWarning: overflow encountered in square
+  kl_term3 = -.5*(np.sum((self.NN - 1)*mixture_beta_phi*(np.square(mixture_beta_mu) + mixture_beta_var)) + np.sum((self.NN - 1)*mixture_alpha_phi*(np.square(mixture_alpha_mu) + mixture_alpha_var)))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:294: RuntimeWarning: overflow encountered in square
+  self.component_variances[bs_iter][l_iter] = np.sum((np.square(self.alpha_mus[l_iter][bs_iter,:]) + self.alpha_vars[l_iter][bs_iter,:])*self.alpha_phis[l_iter][bs_iter,:]) + np.sum((np.square(self.beta_mus[l_iter][bs_iter,:]) + self.beta_vars[l_iter][bs_iter,:])*self.beta_phis[l_iter][bs_iter,:])
+Traceback (most recent call last):
+  File "/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/run_tgfm.py", line 519, in <module>
+    tgfm_obj = tgfm_inference_shell(tgfm_data, gene_log_prior, var_log_prior, args.n_components, args.gene_tissue_pip_threshold)
+  File "/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/run_tgfm.py", line 181, in tgfm_inference_shell
+    tgfm_obj.fit(tgfm_data_obj=tgfm_data)
+  File "/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py", line 50, in fit
+    self.initialize_variables(tgfm_data_obj, phi_init, mu_init, mu_var_init)
+  File "/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py", line 339, in initialize_variables
+    D_mat = np.multiply(np.multiply(np.diag(S_inv_mat)[:, None], tgfm_data_obj['reference_ld']), np.diag(S_inv_mat))
+ValueError: operands could not be broadcast together with shapes (11778,1) (11780,11780) 

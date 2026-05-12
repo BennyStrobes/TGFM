@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/run_tgfm.py", line 510, in <module>
+    tgfm_data['reference_ld'] = np.load(ld_file)
+  File "/opt/view/lib/python3.10/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: '/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/jingling_analysis/prepare_input_data/window_file/ld_npy_perwindow/5:169000001-172000001_ld.npy'

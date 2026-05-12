@@ -1,0 +1,24 @@
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:243: RuntimeWarning: overflow encountered in square
+  un_normalized_lv_beta_weights = expected_log_variant_pi[:,bs_iter] - (.5*np.log(beta_component_variances[bs_iter][l_index])) + (.5*np.square(mixture_beta_mu)/mixture_beta_var) + (.5*np.log(mixture_beta_var))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:243: RuntimeWarning: overflow encountered in divide
+  un_normalized_lv_beta_weights = expected_log_variant_pi[:,bs_iter] - (.5*np.log(beta_component_variances[bs_iter][l_index])) + (.5*np.square(mixture_beta_mu)/mixture_beta_var) + (.5*np.log(mixture_beta_var))
+/opt/view/lib/python3.10/site-packages/scipy/special/_logsumexp.py:111: RuntimeWarning: overflow encountered in exp
+  tmp = np.exp(a - a_max)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:262: RuntimeWarning: invalid value encountered in subtract
+  mixture_beta_phi = np.exp(un_normalized_lv_beta_weights-normalizing_term)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:275: RuntimeWarning: invalid value encountered in subtract
+  ww = np.exp(lbf - maxlbf)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:279: RuntimeWarning: overflow encountered in square
+  kl_term3 = -.5*(np.sum((self.NN - 1)*mixture_beta_phi*(np.square(mixture_beta_mu) + mixture_beta_var)) + np.sum((self.NN - 1)*mixture_alpha_phi*(np.square(mixture_alpha_mu) + mixture_alpha_var)))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:294: RuntimeWarning: overflow encountered in square
+  self.component_variances[bs_iter][l_iter] = np.sum((np.square(self.alpha_mus[l_iter][bs_iter,:]) + self.alpha_vars[l_iter][bs_iter,:])*self.alpha_phis[l_iter][bs_iter,:]) + np.sum((np.square(self.beta_mus[l_iter][bs_iter,:]) + self.beta_vars[l_iter][bs_iter,:])*self.beta_phis[l_iter][bs_iter,:])
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:279: RuntimeWarning: overflow encountered in multiply
+  kl_term3 = -.5*(np.sum((self.NN - 1)*mixture_beta_phi*(np.square(mixture_beta_mu) + mixture_beta_var)) + np.sum((self.NN - 1)*mixture_alpha_phi*(np.square(mixture_alpha_mu) + mixture_alpha_var)))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:278: RuntimeWarning: overflow encountered in multiply
+  kl_term2 = np.sum((mixture_beta_mu*mixture_beta_phi)*variant_b_terms) + np.sum((mixture_alpha_mu*mixture_alpha_phi)*b_terms)
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:280: RuntimeWarning: invalid value encountered in scalar add
+  self.KL_terms[l_index][bs_iter] = kl_term1 + kl_term2 + kl_term3
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:241: RuntimeWarning: overflow encountered in square
+  un_normalized_lv_alpha_weights = expected_log_pi[:,bs_iter] - (.5*np.log(alpha_component_variances[bs_iter][l_index])) + (.5*np.square(mixture_alpha_mu)/mixture_alpha_var) + (.5*np.log(mixture_alpha_var))
+/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM/tgfm_nan_update.py:257: RuntimeWarning: invalid value encountered in subtract
+  mixture_alpha_phi = np.exp(un_normalized_lv_alpha_weights-normalizing_term)

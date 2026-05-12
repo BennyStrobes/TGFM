@@ -1,0 +1,1570 @@
+Processing chunk 7...
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 260 variants have NaN gwas_beta. Setting to 0 with large SE.
+Iterative optimization
+
+Residual before update:
+[ 0.00133855  0.00152389  0.00140033 ...  0.00056685  0.00041235
+ -0.00021471]
+
+Residual before update:
+[ 0.00133774  0.00152308  0.00139952 ...  0.00056687  0.00041237
+ -0.00021471]
+
+Residual before update:
+[ 0.00133694  0.00152228  0.00139872 ...  0.00056689  0.00041239
+ -0.00021471]
+
+Residual before update:
+[ 0.00133614  0.00152147  0.00139792 ...  0.00056691  0.00041241
+ -0.0002147 ]
+
+Residual before update:
+[ 0.00133533  0.00152067  0.00139711 ...  0.00056693  0.00041243
+ -0.0002147 ]
+
+Residual before update:
+[ 0.00133453  0.00151987  0.00139631 ...  0.00056695  0.00041245
+ -0.0002147 ]
+
+Residual before update:
+[ 0.00133373  0.00151907  0.00139551 ...  0.00056697  0.00041247
+ -0.0002147 ]
+
+Residual before update:
+[ 0.00133293  0.00151827  0.00139471 ...  0.00056699  0.00041249
+ -0.00021469]
+
+Residual before update:
+[ 0.00133214  0.00151748  0.00139392 ...  0.00056701  0.00041251
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139312 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.00151669  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133137  0.00151671  0.00139315 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133136  0.0015167   0.00139314 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.00151669  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.00151669  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.00151669  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133135  0.00151669  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139312 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139313 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139312 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139312 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133134  0.00151668  0.00139312 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133133  0.00151667  0.00139311 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133133  0.00151667  0.00139311 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133133  0.00151667  0.00139311 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133133  0.00151667  0.00139311 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133132  0.00151666  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133132  0.00151666  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133132  0.00151666  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133132  0.00151666  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133132  0.00151666  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133131  0.00151665  0.0013931  ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133131  0.00151665  0.00139309 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133131  0.00151665  0.00139309 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133131  0.00151665  0.00139309 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.00133131  0.00151665  0.00139309 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.0013313   0.00151664  0.00139308 ...  0.00056704  0.00041254
+ -0.00021469]
+
+Residual before update:
+[ 0.0013313   0.00151664  0.00139308 ...  0.00056704  0.00041254
+ -0.00021469]
+Compute pips
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 266 variants have NaN gwas_beta. Setting to 0 with large SE.
+Iterative optimization
+
+Residual before update:
+[ 0.0038207   0.00293639 -0.00069817 ...  0.00380214  0.
+  0.01495056]
+
+Residual before update:
+[ 3.82067089e-03  2.93635895e-03 -6.98156050e-04 ...  3.80215106e-03
+ -1.05462856e-16  1.49503356e-02]
+
+Residual before update:
+[ 3.82064375e-03  2.93633209e-03 -6.98137977e-04 ...  3.80216376e-03
+ -2.10666386e-16  1.49501136e-02]
+
+Residual before update:
+[ 3.82061713e-03  2.93630575e-03 -6.98119812e-04 ...  3.80217657e-03
+ -3.16058345e-16  1.49498916e-02]
+
+Residual before update:
+[ 3.82058976e-03  2.93627864e-03 -6.98101693e-04 ...  3.80218570e-03
+ -4.21633406e-16  1.49496698e-02]
+
+Residual before update:
+[ 3.82056228e-03  2.93625141e-03 -6.98083336e-04 ...  3.80219311e-03
+ -5.26897790e-16  1.49494473e-02]
+
+Residual before update:
+[ 3.82053569e-03  2.93622510e-03 -6.98065329e-04 ...  3.80220552e-03
+ -6.32584464e-16  1.49492258e-02]
+
+Residual before update:
+[-1.44240794e+17 -1.45690280e+17 -3.91864150e+16 ... -3.32832484e+18
+ -4.79007541e+08 -1.12528928e+19]
+
+Residual before update:
+[ 3.82048096e-03  2.93617089e-03 -6.98028733e-04 ...  3.80222738e-03
+ -8.43039267e-16  1.49487812e-02]
+
+Residual before update:
+[ 3.82045402e-03  2.93614419e-03 -6.98010345e-04 ...  3.80223363e-03
+ -9.48703030e-16  1.49485584e-02]
+
+Residual before update:
+[ 3.82045487e-03  2.93614502e-03 -6.98010762e-04 ...  3.80223364e-03
+ -9.48622554e-16  1.49485590e-02]
+
+Residual before update:
+[ 3.82045461e-03  2.93614470e-03 -6.98009391e-04 ...  3.80222687e-03
+ -9.50136430e-16  1.49485582e-02]
+
+Residual before update:
+[ 3.82045482e-03  2.93614495e-03 -6.98009589e-04 ...  3.80223414e-03
+ -9.49284747e-16  1.49485585e-02]
+
+Residual before update:
+[ 3.82045641e-03  2.93614657e-03 -6.98009338e-04 ...  3.80223697e-03
+ -9.49761402e-16  1.49485578e-02]
+
+Residual before update:
+[ 3.82045548e-03  2.93614559e-03 -6.98009304e-04 ...  3.80223034e-03
+ -9.50556280e-16  1.49485578e-02]
+
+Residual before update:
+[ 3.82045466e-03  2.93614474e-03 -6.98008863e-04 ...  3.80222356e-03
+ -9.50562652e-16  1.49485564e-02]
+
+Residual before update:
+[ 3.82045542e-03  2.93614550e-03 -6.98009111e-04 ...  3.80222690e-03
+ -9.51288868e-16  1.49485566e-02]
+
+Residual before update:
+[-1.05953768e+52 -1.07018505e+52 -2.87848411e+51 ... -2.44486008e+53
+ -3.51860611e+43 -8.26594448e+53]
+
+Residual before update:
+[ 3.82045444e-03  2.93614453e-03 -6.98008849e-04 ...  3.80222877e-03
+ -9.51306230e-16  1.49485547e-02]
+
+Residual before update:
+[ 3.82045445e-03  2.93614452e-03 -6.98008718e-04 ...  3.80222528e-03
+ -9.51841627e-16  1.49485532e-02]
+
+Residual before update:
+[ 3.82045507e-03  2.93614515e-03 -6.98009389e-04 ...  3.80222745e-03
+ -9.51650005e-16  1.49485538e-02]
+
+Residual before update:
+[ 3.82045462e-03  2.93614466e-03 -6.98008239e-04 ...  3.80222250e-03
+ -9.53048354e-16  1.49485529e-02]
+
+Residual before update:
+[ 3.82045466e-03  2.93614475e-03 -6.98008630e-04 ...  3.80223129e-03
+ -9.52095321e-16  1.49485532e-02]
+
+Residual before update:
+[ 3.82045610e-03  2.93614624e-03 -6.98008537e-04 ...  3.80223535e-03
+ -9.52512098e-16  1.49485525e-02]
+
+Residual before update:
+[ 3.82045504e-03  2.93614514e-03 -6.98008630e-04 ...  3.80222965e-03
+ -9.53271320e-16  1.49485524e-02]
+
+Residual before update:
+[ 3.82045413e-03  2.93614421e-03 -6.98008291e-04 ...  3.80222353e-03
+ -9.53224509e-16  1.49485509e-02]
+
+Residual before update:
+[ 3.82045481e-03  2.93614489e-03 -6.98008610e-04 ...  3.80222733e-03
+ -9.53933578e-16  1.49485511e-02]
+
+Residual before update:
+[-7.78640918e+86 -7.86465533e+86 -2.11536177e+86 ... -1.79669692e+88
+ -2.58577938e+78 -6.07453865e+88]
+
+Residual before update:
+[ 3.82045376e-03  2.93614386e-03 -6.98008413e-04 ...  3.80222945e-03
+ -9.53922560e-16  1.49485491e-02]
+
+Residual before update:
+[ 3.82045376e-03  2.93614384e-03 -6.98008269e-04 ...  3.80222578e-03
+ -9.54493939e-16  1.49485477e-02]
+
+Residual before update:
+[ 3.82045438e-03  2.93614447e-03 -6.98008931e-04 ...  3.80222784e-03
+ -9.54330107e-16  1.49485481e-02]
+
+Residual before update:
+[ 3.82045393e-03  2.93614398e-03 -6.98007774e-04 ...  3.80222278e-03
+ -9.55728544e-16  1.49485473e-02]
+
+Residual before update:
+[ 3.82045398e-03  2.93614408e-03 -6.98008165e-04 ...  3.80223154e-03
+ -9.54765258e-16  1.49485476e-02]
+
+Residual before update:
+[ 3.82045542e-03  2.93614556e-03 -6.98008068e-04 ...  3.80223557e-03
+ -9.55195295e-16  1.49485468e-02]
+
+Residual before update:
+[ 3.82045435e-03  2.93614446e-03 -6.98008157e-04 ...  3.80222984e-03
+ -9.55972659e-16  1.49485467e-02]
+
+Residual before update:
+[ 3.82045344e-03  2.93614353e-03 -6.98007819e-04 ...  3.80222369e-03
+ -9.55909760e-16  1.49485453e-02]
+
+Residual before update:
+[ 3.82045413e-03  2.93614422e-03 -6.98008138e-04 ...  3.80222751e-03
+ -9.56623923e-16  1.49485454e-02]
+
+Residual before update:
+[-5.72213418e+121 -5.77963630e+121 -1.55455276e+121 ... -1.32036997e+123
+ -1.90025675e+113 -4.46410206e+123]
+
+Residual before update:
+[ 3.82045309e-03  2.93614318e-03 -6.98007944e-04 ...  3.80222965e-03
+ -9.56590278e-16  1.49485435e-02]
+
+Residual before update:
+[ 3.82045308e-03  2.93614316e-03 -6.98007796e-04 ...  3.80222598e-03
+ -9.57184576e-16  1.49485420e-02]
+
+Residual before update:
+[ 3.82045369e-03  2.93614379e-03 -6.98008457e-04 ...  3.80222805e-03
+ -9.57038849e-16  1.49485424e-02]
+
+Residual before update:
+[ 3.82045325e-03  2.93614330e-03 -6.98007299e-04 ...  3.80222298e-03
+ -9.58430272e-16  1.49485416e-02]
+
+Residual before update:
+[ 3.82045330e-03  2.93614340e-03 -6.98007693e-04 ...  3.80223176e-03
+ -9.57451937e-16  1.49485419e-02]
+
+Residual before update:
+[ 3.82045474e-03  2.93614489e-03 -6.98007593e-04 ...  3.80223581e-03
+ -9.57892575e-16  1.49485412e-02]
+
+Residual before update:
+[ 3.82045367e-03  2.93614378e-03 -6.98007680e-04 ...  3.80223005e-03
+ -9.58686919e-16  1.49485410e-02]
+
+Residual before update:
+[ 3.82045276e-03  2.93614285e-03 -6.98007344e-04 ...  3.80222389e-03
+ -9.58607438e-16  1.49485396e-02]
+NaNs in component_non_med_pred at component 6
+
+Residual before update:
+[ 3.82045345e-03  2.93614354e-03 -6.98007663e-04 ...  3.80222772e-03
+ -9.59327088e-16  1.49485398e-02]
+NaNs in residual_incl_alpha[7, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan]
+NaNs in self.residual at bs_iter=7
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 7
+
+Residual before update:
+[nan nan nan ... nan nan nan]
+NaNs in residual_incl_alpha[7, :]
+NaNs in gene_weights for bs_iter=7
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan]
+NaNs in self.residual at bs_iter=7
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 8
+
+Residual before update:
+[ 3.82045241e-03  2.93614251e-03 -6.98007473e-04 ...  3.80222987e-03
+ -9.59271933e-16  1.49485379e-02]
+NaNs in residual_incl_alpha[7, :]
+NaNs in gene_weights for bs_iter=7
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan]
+NaNs in self.residual at bs_iter=7
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 9
+
+Residual before update:
+[ 3.82045239e-03  2.93614248e-03 -6.98007321e-04 ...  3.80222619e-03
+ -9.59889839e-16  1.49485363e-02]
+NaNs in residual_incl_alpha[7, :]
+NaNs in gene_weights for bs_iter=7
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan]
+NaNs in self.residual at bs_iter=7
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+Compute pips
+NaNs found in gene-tissue pair PIPs at indices: [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+ 24 25 26 27]
+NaNs found in variant PIPs at indices: [   0    1    2 ... 8906 8907 8908]
+NaNs found in gene PIPs at indices: [0 1 2 3 4 5 6 7 8 9]
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 217 variants have NaN gwas_beta. Setting to 0 with large SE.
+Iterative optimization
+
+Residual before update:
+[ 0.         -0.00646012  0.00195392 ... -0.0095204   0.00842215
+  0.        ]
+
+Residual before update:
+[-7.40827026e-18 -6.45996176e-03  1.95391015e-03 ... -9.52039225e-03
+  8.42216957e-03 -2.64467375e-18]
+
+Residual before update:
+[-1.47973958e-17 -6.45980709e-03  1.95389963e-03 ... -9.52038210e-03
+  8.42219143e-03 -4.35559585e-18]
+
+Residual before update:
+[ 8.81976290e-15 -6.45966062e-03  1.98920673e-03 ... -9.52297014e-03
+  8.43883971e-03  1.51906209e-15]
+
+Residual before update:
+[-2.94497309e-17 -6.45950095e-03  1.95388263e-03 ... -9.52036094e-03
+  8.42223564e-03 -3.93962706e-18]
+
+Residual before update:
+[-3.66912349e-17 -6.45934929e-03  1.95386850e-03 ... -9.52035147e-03
+  8.42225696e-03 -1.01179747e-17]
+
+Residual before update:
+[-4.44540297e-17 -6.45919803e-03  1.95385838e-03 ... -9.52034130e-03
+  8.42227869e-03 -1.30270681e-17]
+
+Residual before update:
+[-5.11568322e-17 -6.45904882e-03  1.95384898e-03 ... -9.52032997e-03
+  8.42230053e-03 -1.30440248e-17]
+
+Residual before update:
+[-5.88108200e-17 -6.45889902e-03  1.95383817e-03 ... -9.52032092e-03
+  8.42232196e-03 -1.59321304e-17]
+
+Residual before update:
+[-6.60980444e-17 -6.45875055e-03  1.95382866e-03 ... -9.52030895e-03
+  8.42234393e-03 -1.71378630e-17]
+
+Residual before update:
+[-6.57375569e-17 -6.45875881e-03  1.95382847e-03 ... -9.52030910e-03
+  8.42234407e-03 -1.78816022e-17]
+
+Residual before update:
+[-6.53371821e-17 -6.45876486e-03  1.95382966e-03 ... -9.52030886e-03
+  8.42234390e-03 -2.03686492e-17]
+
+Residual before update:
+[-6.51958566e-17 -6.45876987e-03  1.95383031e-03 ... -9.52030827e-03
+  8.42234302e-03 -1.60180623e-17]
+
+Residual before update:
+[3.12430825e+06 3.60223556e+13 9.11716066e+15 ... 2.14795223e+13
+ 1.05002388e+16 1.23943614e+06]
+
+Residual before update:
+[-6.48428930e-17 -6.45877704e-03  1.95383965e-03 ... -9.52030602e-03
+  8.42234382e-03 -5.21479145e-18]
+
+Residual before update:
+[-6.46479056e-17 -6.45877909e-03  1.95383129e-03 ... -9.52030762e-03
+  8.42234270e-03 -1.45786441e-17]
+
+Residual before update:
+[-6.53396122e-17 -6.45877952e-03  1.95383160e-03 ... -9.52030769e-03
+  8.42234263e-03 -1.60239001e-17]
+
+Residual before update:
+[-6.45131363e-17 -6.45878087e-03  1.95383259e-03 ... -9.52030633e-03
+  8.42234281e-03 -1.34297527e-17]
+
+Residual before update:
+[-6.50093060e-17 -6.45877969e-03  1.95383162e-03 ... -9.52030794e-03
+  8.42234256e-03 -1.48213464e-17]
+
+Residual before update:
+[-6.50839690e-17 -6.45877848e-03  1.95383199e-03 ... -9.52030637e-03
+  8.42234300e-03 -1.43396968e-17]
+
+Residual before update:
+[-6.49557123e-17 -6.45877819e-03  1.95383100e-03 ... -9.52030702e-03
+  8.42234353e-03 -1.56734371e-17]
+
+Residual before update:
+[-6.47638516e-17 -6.45877716e-03  1.95383150e-03 ... -9.52030722e-03
+  8.42234368e-03 -1.86896905e-17]
+
+Residual before update:
+[-6.48072990e-17 -6.45877645e-03  1.95383157e-03 ... -9.52030701e-03
+  8.42234306e-03 -1.47806866e-17]
+
+Residual before update:
+[ 2.16343960e+25  3.77049345e+32  8.93760973e+34 ... -7.15984875e+33
+  3.66632477e+34  3.11437770e+24]
+
+Residual before update:
+[-6.47539604e-17 -6.45877559e-03  1.95384002e-03 ... -9.52030532e-03
+  8.42234424e-03 -4.65890672e-18]
+
+Residual before update:
+[-6.46652098e-17 -6.45877530e-03  1.95383134e-03 ... -9.52030712e-03
+  8.42234323e-03 -1.42934611e-17]
+
+Residual before update:
+[-6.54429262e-17 -6.45877421e-03  1.95383144e-03 ... -9.52030733e-03
+  8.42234323e-03 -1.59284257e-17]
+
+Residual before update:
+[-6.46713645e-17 -6.45877490e-03  1.95383230e-03 ... -9.52030606e-03
+  8.42234345e-03 -1.34467844e-17]
+
+Residual before update:
+[-6.51960053e-17 -6.45877388e-03  1.95383128e-03 ... -9.52030772e-03
+  8.42234320e-03 -1.48969584e-17]
+
+Residual before update:
+[-6.52742006e-17 -6.45877344e-03  1.95383168e-03 ... -9.52030613e-03
+  8.42234361e-03 -1.44052403e-17]
+
+Residual before update:
+[-6.51470342e-17 -6.45877372e-03  1.95383071e-03 ... -9.52030676e-03
+  8.42234412e-03 -1.57347292e-17]
+
+Residual before update:
+[-6.49541053e-17 -6.45877310e-03  1.95383123e-03 ... -9.52030695e-03
+  8.42234425e-03 -1.87523743e-17]
+
+Residual before update:
+[-6.49959124e-17 -6.45877266e-03  1.95383131e-03 ... -9.52030673e-03
+  8.42234362e-03 -1.48255878e-17]
+
+Residual before update:
+[ 1.70418309e+44  3.64793399e+51  8.52633309e+53 ... -7.93679300e+52
+  4.00215008e+51  3.31354526e+43]
+
+Residual before update:
+[-6.49425260e-17 -6.45877196e-03  1.95383980e-03 ... -9.52030503e-03
+  8.42234481e-03 -4.66534367e-18]
+
+Residual before update:
+[-6.48491795e-17 -6.45877173e-03  1.95383110e-03 ... -9.52030684e-03
+  8.42234378e-03 -1.43245355e-17]
+
+Residual before update:
+[-6.56285048e-17 -6.45877059e-03  1.95383120e-03 ... -9.52030705e-03
+  8.42234379e-03 -1.59622148e-17]
+
+Residual before update:
+[-6.48544054e-17 -6.45877122e-03  1.95383206e-03 ... -9.52030577e-03
+  8.42234401e-03 -1.34721482e-17]
+
+Residual before update:
+[-6.53776052e-17 -6.45877019e-03  1.95383104e-03 ... -9.52030743e-03
+  8.42234376e-03 -1.49254393e-17]
+
+Residual before update:
+[-6.54571233e-17 -6.45876969e-03  1.95383144e-03 ... -9.52030583e-03
+  8.42234417e-03 -1.44321777e-17]
+
+Residual before update:
+[-6.53303246e-17 -6.45876993e-03  1.95383047e-03 ... -9.52030647e-03
+  8.42234468e-03 -1.57655542e-17]
+
+Residual before update:
+[-6.51366528e-17 -6.45876930e-03  1.95383098e-03 ... -9.52030666e-03
+  8.42234482e-03 -1.87920104e-17]
+
+Residual before update:
+[-6.51778316e-17 -6.45876888e-03  1.95383107e-03 ... -9.52030644e-03
+  8.42234418e-03 -1.48537869e-17]
+
+Residual before update:
+[8.30643712e+69 9.57707776e+76 2.42393245e+79 ... 5.71065077e+76
+ 2.79164432e+79 3.29522492e+69]
+
+Residual before update:
+[-6.51273808e-17 -6.45876813e-03  1.95383958e-03 ... -9.52030473e-03
+  8.42234538e-03 -4.66454439e-18]
+
+Residual before update:
+[-6.50309010e-17 -6.45876796e-03  1.95383086e-03 ... -9.52030655e-03
+  8.42234434e-03 -1.43517003e-17]
+
+Residual before update:
+[-6.58131676e-17 -6.45876681e-03  1.95383095e-03 ... -9.52030676e-03
+  8.42234435e-03 -1.59943223e-17]
+
+Residual before update:
+[-6.50375689e-17 -6.45876743e-03  1.95383182e-03 ... -9.52030547e-03
+  8.42234458e-03 -1.34971641e-17]
+
+Residual before update:
+[-6.55600351e-17 -6.45876644e-03  1.95383080e-03 ... -9.52030715e-03
+  8.42234432e-03 -1.49543352e-17]
+
+Residual before update:
+[-6.56412918e-17 -6.45876591e-03  1.95383120e-03 ... -9.52030554e-03
+  8.42234474e-03 -1.44598796e-17]
+Compute pips
+NaNs found in variant PIPs at indices: [2273 2303 2543 ... 6279 6285 6286]
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 227 variants have NaN gwas_beta. Setting to 0 with large SE.
+Iterative optimization
+
+Residual before update:
+[-0.00644743  0.00058907 -0.00386734 ... -0.00087904  0.00071781
+ -0.00187678]
+
+Residual before update:
+[-0.00644718  0.00058888 -0.00386733 ... -0.00087903  0.00071782
+ -0.00187676]
+
+Residual before update:
+[-0.00644687  0.00058897 -0.00386731 ... -0.00087902  0.00071783
+ -0.00187675]
+
+Residual before update:
+[-0.00644666  0.00058859 -0.00386731 ... -0.00087901  0.00071784
+ -0.00187674]
+
+Residual before update:
+[-0.00644635  0.00058872 -0.00386729 ... -0.000879    0.00071786
+ -0.00187673]
+
+Residual before update:
+[-0.00644609  0.00058859 -0.00386728 ... -0.00087899  0.00071787
+ -0.00187671]
+
+Residual before update:
+[-0.00644575  0.00058888 -0.00386726 ... -0.00087898  0.00071788
+ -0.0018767 ]
+
+Residual before update:
+[-0.00644563  0.00058796 -0.00386726 ... -0.00087897  0.00071789
+ -0.00187669]
+
+Residual before update:
+[-0.00644515  0.000589   -0.00386723 ... -0.00087896  0.00071791
+ -0.00187668]
+
+Residual before update:
+[-0.00644495  0.00058855 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064449   0.00058876 -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644514  0.00058755 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644493  0.00058867 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064451   0.00058776 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644499  0.00058834 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.006445    0.00058827 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064449   0.00058881 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644509  0.00058776 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644486  0.000589   -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644494  0.00058858 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064449   0.00058877 -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644512  0.00058761 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644492  0.00058868 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644509  0.00058778 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644498  0.00058835 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644499  0.00058827 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064449   0.00058881 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644509  0.00058776 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644486  0.000589   -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644494  0.00058857 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.0064449   0.00058877 -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644512  0.00058761 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187667]
+
+Residual before update:
+[-0.00644492  0.00058868 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644509  0.00058778 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644498  0.00058834 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644499  0.00058827 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644489  0.00058881 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644508  0.00058775 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644486  0.000589   -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644493  0.00058857 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644489  0.00058877 -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644511  0.0005876  -0.00386724 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644491  0.00058868 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644508  0.00058778 -0.00386724 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644497  0.00058834 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644499  0.00058827 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644489  0.00058881 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644508  0.00058775 -0.00386723 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644485  0.000589   -0.00386721 ... -0.00087895  0.00071792
+ -0.00187666]
+
+Residual before update:
+[-0.00644493  0.00058857 -0.00386722 ... -0.00087895  0.00071792
+ -0.00187666]
+Compute pips
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 123 variants have NaN gwas_beta. Setting to 0 with large SE.
+Iterative optimization
+
+Residual before update:
+[-0.00488129 -0.00286686  0.01088726 ...  0.00412182  0.
+  0.00282303]
+
+Residual before update:
+[-4.88127943e-03 -2.86410578e-03  1.08900127e-02 ...  4.13156257e-03
+  4.69817664e-14  2.83397442e-03]
+
+Residual before update:
+[-4.88342506e-03 -2.86826899e-03  1.08693681e-02 ...  4.27626125e-03
+  5.50115838e-13  2.95062446e-03]
+
+Residual before update:
+[-4.88135533e-03 -2.86693716e-03  1.08868687e-02 ...  4.12118006e-03
+ -3.16887777e-15  2.82239922e-03]
+
+Residual before update:
+[ 1.12390852e+04  1.41356591e+04  3.37713659e+03 ... -9.07443279e+03
+ -4.74164613e-05 -9.40300356e+03]
+
+Residual before update:
+[-4.88139687e-03 -2.86698669e-03  1.08866076e-02 ...  4.12075538e-03
+ -5.28366046e-15  2.82197564e-03]
+
+Residual before update:
+[-4.88141422e-03 -2.86700879e-03  1.08864805e-02 ...  4.12063812e-03
+ -5.85433576e-15  2.82185870e-03]
+
+Residual before update:
+[3.62748214e+01 5.04582041e+01 1.11254746e+02 ... 8.07440992e+03
+ 4.11455286e-05 8.10562627e+03]
+
+Residual before update:
+[-4.88145710e-03 -2.86705862e-03  1.08862229e-02 ...  4.12017625e-03
+ -8.18074930e-15  2.82139550e-03]
+
+Residual before update:
+[-4.10931360e+03 -2.86212805e+03 -4.81887260e+03 ... -1.60445590e+04
+ -7.83459471e-05 -1.56633026e+04]
+
+Residual before update:
+[-4.88151820e-03 -2.86712322e-03  1.08860545e-02 ...  4.11996740e-03
+ -9.18751233e-15  2.82119157e-03]
+
+Residual before update:
+[-4.88117907e-03 -2.86350399e-03  1.08867902e-02 ...  4.11311342e-03
+ -4.36970646e-14  2.81390354e-03]
+
+Residual before update:
+[-4.94408028e-03 -2.90210194e-03  1.08884636e-02 ...  7.17530010e-04
+ -1.70428279e-11 -5.81367102e-04]
+
+Residual before update:
+[-4.88147644e-03 -2.86708169e-03  1.08860931e-02 ...  4.11990981e-03
+ -9.50214559e-15  2.82113050e-03]
+
+Residual before update:
+[-2.08443164e+43 -2.62163747e+43 -6.26331018e+42 ...  1.68296875e+43
+  8.79398065e+34  1.74390610e+43]
+
+Residual before update:
+[-4.88147672e-03 -2.86708221e-03  1.08860882e-02 ...  4.11990781e-03
+ -9.50731676e-15  2.82112957e-03]
+
+Residual before update:
+[-4.88147180e-03 -2.86707848e-03  1.08860920e-02 ...  4.12004878e-03
+ -8.78445151e-15  2.82127045e-03]
+
+Residual before update:
+[-1.98505121e+17 -2.28843078e+17 -1.32490238e+18 ... -6.25181196e+18
+ -3.18701140e+10 -6.28378731e+18]
+
+Residual before update:
+[-4.88147506e-03 -2.86708038e-03  1.08860927e-02 ...  4.11997020e-03
+ -9.20884026e-15  2.82118956e-03]
+
+Residual before update:
+[-8.55279144e+17 -5.95700185e+17 -1.00296445e+18 ... -3.33938902e+18
+ -1.63063084e+10 -3.26003705e+18]
+
+Residual before update:
+[-4.88151586e-03 -2.86712084e-03  1.08860535e-02 ...  4.11996715e-03
+ -9.18873785e-15  2.82119129e-03]
+
+Residual before update:
+[-4.88120760e-03 -2.86804075e-03  1.08823445e-02 ...  4.09472611e-03
+ -1.33797511e-13  2.79355325e-03]
+
+Residual before update:
+[-4.93225190e-03 -2.89412802e-03  1.08847583e-02 ...  3.16574424e-03
+ -4.65317823e-12  1.88446522e-03]
+
+Residual before update:
+[-4.88147592e-03 -2.86708118e-03  1.08860913e-02 ...  4.11990704e-03
+ -9.51591933e-15  2.82112773e-03]
+
+Residual before update:
+[ 3.86584227e+82  4.86215846e+82  1.16161014e+82 ... -3.12127854e+82
+ -1.63095500e+74 -3.23429456e+82]
+
+Residual before update:
+[-4.88147672e-03 -2.86708225e-03  1.08860862e-02 ...  4.11990469e-03
+ -9.52288119e-15  2.82112645e-03]
+
+Residual before update:
+[-4.88147196e-03 -2.86707869e-03  1.08860899e-02 ...  4.12004572e-03
+ -8.79963959e-15  2.82126740e-03]
+
+Residual before update:
+[-1.34149444e+34  1.48470201e+34  2.19665709e+35 ... -1.39723475e+37
+ -7.28097657e+28 -1.43634964e+37]
+
+Residual before update:
+[-4.88147537e-03 -2.86708075e-03  1.08860908e-02 ...  4.11996712e-03
+ -9.22422663e-15  2.82118648e-03]
+
+Residual before update:
+[-1.78066381e+32 -1.24022873e+32 -2.08813990e+32 ... -6.95250111e+32
+ -3.39492125e+24 -6.78729284e+32]
+
+Residual before update:
+[-4.88151630e-03 -2.86712135e-03  1.08860512e-02 ...  4.11996353e-03
+ -9.20675598e-15  2.82118768e-03]
+
+Residual before update:
+[-4.87240239e-03 -2.84838546e-03  1.09069858e-02 ...  4.65423254e-03
+  2.75428449e-12  3.35855483e-03]
+
+Residual before update:
+[-4.93214793e-03 -2.89381941e-03  1.08831689e-02 ...  2.87327082e-03
+ -6.11953394e-12  1.59325668e-03]
+
+Residual before update:
+[-4.88147623e-03 -2.86708155e-03  1.08860893e-02 ...  4.11990377e-03
+ -9.53223264e-15  2.82112447e-03]
+
+Residual before update:
+[-7.16969373e+121 -9.01748819e+121 -2.15435301e+121 ...  5.78880606e+121
+  3.02481246e+113  5.99840858e+121]
+
+Residual before update:
+[-4.88147704e-03 -2.86708263e-03  1.08860842e-02 ...  4.11990131e-03
+ -9.53971915e-15  2.82112307e-03]
+
+Residual before update:
+[-4.88147227e-03 -2.86707906e-03  1.08860879e-02 ...  4.12004259e-03
+ -8.81521535e-15  2.82126427e-03]
+
+Residual before update:
+[7.60147210e+58 1.05728063e+59 2.33082580e+59 ... 1.69178164e+61
+ 8.62097498e+52 1.69832249e+61]
+
+Residual before update:
+[-4.88147567e-03 -2.86708111e-03  1.08860888e-02 ...  4.11996403e-03
+ -9.23962732e-15  2.82118339e-03]
+
+Residual before update:
+[-3.70728509e+46 -2.58211653e+46 -4.34744047e+46 ... -1.44748849e+47
+ -7.06811742e+38 -1.41309265e+47]
+
+Residual before update:
+[-4.88151673e-03 -2.86712184e-03  1.08860488e-02 ...  4.11995991e-03
+ -9.22470611e-15  2.82118408e-03]
+
+Residual before update:
+[-4.87750886e-03 -2.86604935e-03  1.08847169e-02 ...  4.24289551e-03
+  6.80847851e-13  2.94627025e-03]
+NaNs in component_non_med_pred at component 2
+
+Residual before update:
+[-4.93122053e-03 -2.89322700e-03  1.08827213e-02 ...  2.83740847e-03
+ -6.29687978e-12  1.55793194e-03]
+NaNs in residual_incl_alpha[4, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 3
+
+Residual before update:
+[-4.88147654e-03 -2.86708192e-03  1.08860873e-02 ...  4.11990049e-03
+ -9.54859867e-15  2.82112119e-03]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 4
+
+Residual before update:
+[nan nan nan ... nan nan nan]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 5
+
+Residual before update:
+[-4.88147736e-03 -2.86708301e-03  1.08860821e-02 ...  4.11989792e-03
+ -9.55661624e-15  2.82111969e-03]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 6
+
+Residual before update:
+[-4.88147258e-03 -2.86707944e-03  1.08860858e-02 ...  4.12003945e-03
+ -8.83084658e-15  2.82126113e-03]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 7
+
+Residual before update:
+[-3.73702591e+74 -4.19665912e+74 -2.66324188e+75 ... -2.82019697e+75
+ -1.43968953e+67 -2.84763428e+75]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 8
+
+Residual before update:
+[-4.88147597e-03 -2.86708146e-03  1.08860869e-02 ...  4.11996094e-03
+ -9.25507947e-15  2.82118030e-03]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in component_non_med_pred at component 9
+
+Residual before update:
+[-7.71844894e+60 -5.37588400e+60 -9.05123197e+60 ... -3.01362472e+61
+ -1.47155943e+53 -2.94201369e+61]
+NaNs in residual_incl_alpha[4, :]
+NaNs in gene_weights for bs_iter=4
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=4
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[17, :]
+NaNs in gene_weights for bs_iter=17
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=17
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[20, :]
+NaNs in gene_weights for bs_iter=20
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=20
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[25, :]
+NaNs in gene_weights for bs_iter=25
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=25
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[68, :]
+NaNs in gene_weights for bs_iter=68
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=68
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[71, :]
+NaNs in gene_weights for bs_iter=71
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=71
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[91, :]
+NaNs in gene_weights for bs_iter=91
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=91
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+NaNs in residual_incl_alpha[99, :]
+NaNs in gene_weights for bs_iter=99
+NaN in mixture_alpha_mu: b_terms=[nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan]
+NaNs in self.residual at bs_iter=99
+NaNs in un_normalized_lv_alpha_weights
+NaN in normalizing_term
+Compute pips
+NaNs found in gene-tissue pair PIPs at indices: [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+NaNs found in variant PIPs at indices: [   0    1    2 ... 2969 2970 2971]
+NaNs found in gene PIPs at indices: [0 1 2 3 4]
+###############################
+TGFM
+###############################
+Initialize variables
+Warning: 176 variants have NaN gwas_beta. Setting to 0 with large SE.
+Finished processing final TGFM
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@node-11-3-1>
+Subject: Job 740119[7]: <run_final_TGFM_CD[1-50]> in cluster <farm22> Done
+
+Job <run_final_TGFM_CD[1-50]> was submitted from host <farm22-head2> by user <bh18> in cluster <farm22> at Thu Apr 30 14:08:18 2026
+Job was executed on host(s) <node-11-3-1>, in queue <long>, as user <bh18> in cluster <farm22> at Thu Apr 30 14:08:33 2026
+</nfs/users/nfs_b/bh18> was used as the home directory.
+</lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM> was used as the working directory.
+Started at Thu Apr 30 14:08:33 2026
+Terminated at Thu Apr 30 14:12:43 2026
+Results reported at Thu Apr 30 14:12:43 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+bash execution_scripts_BH/run_TGFM-BH-MCP.sh -t CD
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   247.47 sec.
+    Max Memory :                                 4134 MB
+    Average Memory :                             2734.22 MB
+    Total Requested Memory :                     30000.00 MB
+    Delta Memory :                               25866.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                14
+    Run time :                                   250 sec.
+    Turnaround time :                            265 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <logs/run_final_TGFM-CD-7-740119-error.log> for stderr output of this job.
+

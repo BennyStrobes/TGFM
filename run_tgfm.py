@@ -3,7 +3,7 @@ import numpy as np
 import os 
 import pdb
 import pickle
-import tgfm
+import tgfm_nan_update as tgfm
 import rpy2
 import rpy2.robjects.numpy2ri as numpy2ri
 import rpy2.robjects as ro
