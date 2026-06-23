@@ -19,6 +19,12 @@ cp ${JLDIR}/output_data/TGFM_scripts/tgfm.py tgfm_nan_update.py
 # REMOVE LINE 23 from this file. This line: mixture_beta_mu = np.clip(mixture_beta_mu, -1.0, 1.0)
 ```
 
+0. Check the rows of the GWAS files which cannot generate z-score (missing beta or SE)
+```bash
+module load $uber
+Rscript count_missing_z_gwas.r
+```
+
 1. Use a single job to regenerate files per chromosome
 ```bash
 bsub -J "Regen_LD[1-22]" -M 100000 -a "memlimit=True" -R "select[mem>100000] rusage[mem=100000] span[hosts=1]" -o logs/generate_plink_ldmatrix_perwindow_for_nan-%I-%J-output.log -e logs/generate_plink_ldmatrix_perwindow_for_nan-%I-%J-error.log -q normal \
