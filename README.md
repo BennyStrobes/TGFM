@@ -45,6 +45,12 @@ The pipeline checks at startup whether Jingling's pre-computed corrected-flip pl
 ### 7. Fixed `generate_windows.py` argument order
 The script expects positional arguments `<bim_file> <output_file> <chromosome>`. The previous call passed four arguments in the wrong order; this is now corrected.
 
+### 8. Gzip-aware file reading in `susie_eqtl_fine_mapping_for_tgfm.py`
+The intersected GWAS summary statistic files are written as `.txt.gz` by `INTERSECT_GWAS_GENO`. The original script opened all input files with plain `open()`, causing a `UnicodeDecodeError` on the first byte of gzip-compressed data. A small `_open()` helper is now used for all read-only file opens: it delegates to `gzip.open(..., 'rt')` when the path ends with `.gz`, and to `open()` otherwise.
+
+### 9. MCP analysis mode
+`conf/analysis.config` now has a top-level flag `def _mcp = false/true`. When `true`, the eQTL summary statistics directory switches from `reformatted_eqtl_sumstat` to `reformatted_eqtl_sumstat_mcp` (major cell populations). The active mode and the resolved eQTL directory are printed at pipeline startup.
+
 ---
 
 ## External inputs (read-only)

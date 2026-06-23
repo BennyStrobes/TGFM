@@ -515,7 +515,6 @@ process SUSIE_EQTL_FM {
         fi
 
         EQTL_SUMSTAT="\${EQTL_FOLDER}/reformatted_cis_nominal1_eqtl.\${CHROM_NUM}.tsv"
-        QVAL_FILE="\${EQTL_FOLDER}/Cis_eqtls_qval.tsv"
         EQTL_OUTPUT_STEM="\${OUTPUT_DIR}/\${FILE_PREFIX}"
         PLINK_GENO_FILE_STEM="\${PLINK_DIR}/imputed_chr\${CHROM_NUM}"
 
@@ -528,8 +527,7 @@ process SUSIE_EQTL_FM {
             --eqtl-sumstat "\${EQTL_SUMSTAT}" \\
             --gwas-sumstat "\${GWAS_SUMSTAT}" \\
             --filter-strand-ambiguous \\
-            --out "\${EQTL_OUTPUT_STEM}" \\
-            --qval-file "\${QVAL_FILE}"
+            --out "\${EQTL_OUTPUT_STEM}"
 
         echo "Completed: chr\${CHROM_NUM}, \${FILE_PREFIX}"
     done
@@ -832,6 +830,8 @@ workflow {
     ║  Chunks       : ${params.n_chunks}
     ║  Chromosomes  : ${params.chromosomes}
     ║  Output       : ${params.output_dir}
+    ║  MCP mode     : ${params.mcp}
+    ║  eQTL sumstat : ${params.eqtl_sumstat_dir}
     ║  skip_intersect    : ${params.skip_intersect}
     ║  skip_ld_generation: ${params.skip_ld_generation}
     ║  skip_eqtl_fm      : ${params.skip_eqtl_fm}

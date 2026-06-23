@@ -1,7 +1,8 @@
 import sys
+import gzip
 import pandas as pd
-import numpy as np 
-import os 
+import numpy as np
+import os
 import pdb
 from pandas_plink import read_plink1_bin
 import rpy2
@@ -14,9 +15,14 @@ susieR_pkg = importr('susieR')
 import argparse
 
 
+def _open(path, mode='r'):
+    if path.endswith('.gz'):
+        return gzip.open(path, mode + 't')
+    return open(path, mode)
+
 
 def extract_gwas_variants(gwas_sumstat_file, chrom_num):
-	f = open(gwas_sumstat_file)
+	f = _open(gwas_sumstat_file)
 	dictionary = {}
 	head_count = 0  # Skip header
 	for line in f:
@@ -130,7 +136,7 @@ def load_in_eqtl_genotype_data(genotype_stem, chrom_num, gwas_variants, filter_s
 def load_in_per_gene_eqtl_summary_statistics(eqtl_sumstat_file, rsid_to_genotype_position, chrom_num, cis_window_size):
 	eqtl_sumstat_obj = {}
 	head_count = 0
-	f = open(eqtl_sumstat_file)
+	f = _open(eqtl_sumstat_file)
 	# Loop through eqtl summary stats
 	for line in f:
 		line = line.rstrip()
@@ -326,7 +332,7 @@ def run_susie_eqtl_fine_mapping_with_individual_data(gwas_variants, expression_f
 	#############################
 	print('Fit SuSiE eQTL gene models')
 	# Loop through genes
-	f = open(expression_file)
+	f = _open(expression_file)
 	head_count = 0  # To identify header
 	for line in f:
 		line = line.rstrip()
