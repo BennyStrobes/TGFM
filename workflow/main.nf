@@ -141,7 +141,8 @@ process CORRECT_FLIP {
 
     export INPUT_PLINK_PREFIX="${params.geno_raw_prefix}"
     export OUTPUT_PLINK_PREFIX="${params.plink_prefix}"
-    export CORRECT_FLIP_DELEGATE="${params.correct_flip_delegate}"
+    export PLINK2_BIN="${params.plink2_bin}"
+    export FLIP_ALLELES_FILE="${params.flip_alleles_file}"
 
     mkdir -p "\$(dirname "\${OUTPUT_PLINK_PREFIX}")"
 
@@ -453,86 +454,91 @@ process GENERATE_FINAL_WINDOWS {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// STEP 8 — SuSiE eQTL fine-mapping per chromosome
+// STEP 7b — Discover available cell types from the eQTL sumstat directory.
 //
-// Loops over all cell type folders in eqtl_sumstat_dir.
-// Output: results/eqtl_fine_mapping/{cell_type}_ct_chr{chr}_gene_summary.txt
-//         + associated npy files
+// Runs on a compute node (NFS-mounted) and emits one line per cell type:
+//   file_prefix <TAB> folder_path
+// e.g. "B_ct\t/path/to/dMean__B_ct_all"
 // ─────────────────────────────────────────────────────────────────────────────
-process SUSIE_EQTL_FM {
-    label 'mem_100GB_long'
-    tag "susie_chr${chr}"
+process DISCOVER_CELL_TYPES {
+    label 'mem_low'
+    tag "discover_cell_types"
     container params.container_tgfm
 
-    input:
-    val chr
-
     output:
-    val chr
+    path "cell_types.txt"
 
     script:
     """
     set -euo pipefail
 
-    CHROM_NUM="${chr}"
     EQTL_SUMSTAT_BASE="${params.eqtl_sumstat_dir}"
-    GWAS_SUMSTAT="${params.sumstats_output_dir}/IBD_geno_intersected_GWAS_sumstat.txt.gz"
-    PLINK_DIR="${params.eqtl_plink_dir}"
-    OUTPUT_DIR="${params.eqtl_fm_dir}"
+    OUT="cell_types.txt"
+    > "\${OUT}"
 
-    mkdir -p "\${OUTPUT_DIR}"
+    for FOLDER in "\${EQTL_SUMSTAT_BASE}"/dMean__*_ct_all; do
+        [[ -d "\${FOLDER}" ]] || continue
+        folder_name=\$(basename "\${FOLDER}")
 
-    # Loop through all cell type folders
-    CELL_TYPE_FOLDERS=(\${EQTL_SUMSTAT_BASE}/dMean__*_ct_all)
+        # Strip leading dMean__ and trailing _ct_all to get the middle part
+        # e.g. dMean__B_ct_all -> B   or  dMean__T_Tregs_ct_all -> T_Tregs
+        inner=\${folder_name#dMean__}
+        inner=\${inner%_ct_all}
 
-    if [[ \${#CELL_TYPE_FOLDERS[@]} -eq 0 ]]; then
-        echo "WARNING: No cell type folders found in \${EQTL_SUMSTAT_BASE}"
+        FILE_PREFIX="\${inner}_ct"
+        echo "\${FILE_PREFIX}\t\${FOLDER}" >> "\${OUT}"
+    done
+
+    if [[ ! -s "\${OUT}" ]]; then
+        echo "ERROR: No dMean__*_ct_all folders found in \${EQTL_SUMSTAT_BASE}" >&2
         exit 1
     fi
 
-    for FOLDER in "\${CELL_TYPE_FOLDERS[@]}"; do
-        [[ -d "\${FOLDER}" ]] || continue
+    echo "Discovered cell types:"
+    cat "\${OUT}"
+    """
+}
 
-        folder_name=\$(basename "\${FOLDER}")
+// ─────────────────────────────────────────────────────────────────────────────
+// STEP 8 — SuSiE eQTL fine-mapping, one job per (chromosome × cell type)
+//
+// Output: results/eqtl_fine_mapping/{file_prefix}_chr{chr}_gene_summary.txt
+//         + associated npy files
+// ─────────────────────────────────────────────────────────────────────────────
+process SUSIE_EQTL_FM {
+    label 'mem_100GB_long'
+    tag "susie_chr${chr}_${file_prefix}"
+    container params.container_tgfm
 
-        # Extract CELL_TYPE (field 2 of dMean__<CELL_TYPE>_<SUBTYPE?>_ct_all)
-        CELL_TYPE=\$(echo "\${folder_name}" | tr -s '_' | cut -d'_' -f2)
+    input:
+    tuple val(chr), val(file_prefix), val(eqtl_folder)
 
-        # Extract optional CELL_SUBTYPE
-        if [[ "\${folder_name}" =~ dMean__\${CELL_TYPE}_(.+)_ct_all ]]; then
-            CELL_SUBTYPE="\${BASH_REMATCH[1]}"
-        else
-            CELL_SUBTYPE=""
-        fi
+    output:
+    tuple val(chr), val(file_prefix)
 
-        # Build paths
-        if [[ -z "\${CELL_SUBTYPE}" ]]; then
-            EQTL_FOLDER="\${EQTL_SUMSTAT_BASE}/dMean__\${CELL_TYPE}_ct_all"
-            FILE_PREFIX="\${CELL_TYPE}_ct"
-        else
-            EQTL_FOLDER="\${EQTL_SUMSTAT_BASE}/dMean__\${CELL_TYPE}_\${CELL_SUBTYPE}_ct_all"
-            FILE_PREFIX="\${CELL_TYPE}_\${CELL_SUBTYPE}_ct"
-        fi
+    script:
+    """
+    set -euo pipefail
 
-        EQTL_SUMSTAT="\${EQTL_FOLDER}/reformatted_cis_nominal1_eqtl.\${CHROM_NUM}.tsv"
-        EQTL_OUTPUT_STEM="\${OUTPUT_DIR}/\${FILE_PREFIX}"
-        PLINK_GENO_FILE_STEM="\${PLINK_DIR}/imputed_chr\${CHROM_NUM}"
+    EQTL_SUMSTAT="${eqtl_folder}/reformatted_cis_nominal1_eqtl.${chr}.tsv"
+    EQTL_OUTPUT_STEM="${params.eqtl_fm_dir}/${file_prefix}"
+    PLINK_GENO_FILE_STEM="${params.eqtl_plink_dir}/imputed_chr"
+    GWAS_SUMSTAT="${params.sumstats_output_dir}/IBD_geno_intersected_GWAS_sumstat.txt.gz"
 
-        echo "Processing: chr\${CHROM_NUM}, cell type: \${FILE_PREFIX}"
+    mkdir -p "${params.eqtl_fm_dir}"
 
-        python "${params.susie_eqtl_script}" \\
-            --eqtl-data-type SumStat \\
-            --chrom "\${CHROM_NUM}" \\
-            --genotype-stem "\${PLINK_GENO_FILE_STEM}" \\
-            --eqtl-sumstat "\${EQTL_SUMSTAT}" \\
-            --gwas-sumstat "\${GWAS_SUMSTAT}" \\
-            --filter-strand-ambiguous \\
-            --out "\${EQTL_OUTPUT_STEM}"
+    echo "Processing: chr${chr}, cell type: ${file_prefix}"
 
-        echo "Completed: chr\${CHROM_NUM}, \${FILE_PREFIX}"
-    done
+    python "${params.susie_eqtl_script}" \\
+        --eqtl-data-type SumStat \\
+        --chrom "${chr}" \\
+        --genotype-stem "\${PLINK_GENO_FILE_STEM}" \\
+        --eqtl-sumstat "\${EQTL_SUMSTAT}" \\
+        --gwas-sumstat "\${GWAS_SUMSTAT}" \\
+        --filter-strand-ambiguous \\
+        --out "\${EQTL_OUTPUT_STEM}"
 
-    echo "SUSIE_EQTL_FM chr${chr} done."
+    echo "SUSIE_EQTL_FM chr${chr} ${file_prefix} done."
     """
 }
 
@@ -899,11 +905,24 @@ workflow {
     // ── STEP 10: GWAS summary file (depends on intersect, runs in parallel with LD) ──
     gwas_summary_done_ch = MAKE_GWAS_SUMMARY(intersect_done_ch)
 
-    // ── STEP 8: SuSiE eQTL fine-mapping (per chromosome) ─────────────────────
+    // ── STEP 8: SuSiE eQTL fine-mapping (one job per chromosome × cell type) ───
     if (!params.skip_eqtl_fm) {
-        // Depends on intersect being done (uses our filtered GWAS sumstat)
-        susie_chr_ch  = intersect_done_ch.flatMap { chroms }
-        susie_done_ch = SUSIE_EQTL_FM(susie_chr_ch)
+        // Discover cell types on a compute node (NFS-mounted), then split into
+        // one (file_prefix, folder_path) pair per line of the output file.
+        cell_types_ch = DISCOVER_CELL_TYPES()
+            .splitText()
+            .map { line ->
+                def parts = line.trim().split('\t')
+                [parts[0], parts[1]]   // [file_prefix, eqtl_folder]
+            }
+
+        // Combine: every chr with every cell type, gated on intersect completion
+        susie_pairs_ch = intersect_done_ch
+            .flatMap { chroms }
+            .combine(cell_types_ch)
+            .map { chr, file_prefix, eqtl_folder -> [chr, file_prefix, eqtl_folder] }
+
+        susie_done_ch  = SUSIE_EQTL_FM(susie_pairs_ch)
         all_susie_done = susie_done_ch.collect()
     } else {
         all_susie_done = Channel.value(['skipped'])

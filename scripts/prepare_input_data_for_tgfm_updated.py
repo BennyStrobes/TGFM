@@ -187,11 +187,11 @@ def load_in_gene_names_and_positions(tissue_summary_file, chrom_num):
 	gene_names = []
 	tissue_names = []
 	gene_coords = []
-	gene_variant_info_files = []
-	susie_mu_files = []
-	susie_mu_var_files = []
-	susie_alpha_files = []
-	susie_pmces_files = []
+	combined_susie_files = []
+	combined_vi_files = []
+	gene_variant_rows = {}   # gene_tissue_name -> list of [chr, rsid, cm, pos, a0, a1] rows
+
+	vi_cache = {}   # combined_vi_file -> {gene: [[chr, rsid, cm, pos, a0, a1], ...]}
 
 	head_count = 0
 	f = open(tissue_summary_file)
@@ -218,9 +218,8 @@ def load_in_gene_names_and_positions(tissue_summary_file, chrom_num):
 				head_count2 = head_count2 + 1
 				continue
 
-			# Parse line
+			# Parse line (6-column format: Gene, CHR, GENE_COORD, INFO, combined_susie_file, combined_variant_info_file)
 			gene_name = data2[0]
-			line_chrom_num = data2[1]
 			gene_coord = int(data2[2])
 			gene_status = data2[3]
 
@@ -228,38 +227,42 @@ def load_in_gene_names_and_positions(tissue_summary_file, chrom_num):
 			if gene_status != 'Pass':
 				continue
 
-			# Further parse line
-			gene_variant_info_file = data2[4]
-			gene_susie_alpha_file = data2[5]
-			gene_susie_mu_file = data2[6]
-			gene_susie_mu_var_file = data2[7]
-			gene_susie_pmces_file = data2[8]
+			combined_susie_file = data2[4]
+			combined_vi_file = data2[5]
 			gene_tissue_name = gene_name + '_' + tissue_name
+
+			# Pre-load variant info from combined tsv (cached per file)
+			if combined_vi_file not in vi_cache:
+				rows_by_gene = {}
+				with open(combined_vi_file) as vf:
+					vf.readline()  # skip header
+					for vline in vf:
+						parts = vline.rstrip().split('\t')
+						g_key = parts[0]
+						if g_key not in rows_by_gene:
+							rows_by_gene[g_key] = []
+						rows_by_gene[g_key].append(parts[1:])  # [chr, rsid, cm, pos, a0, a1]
+				vi_cache[combined_vi_file] = rows_by_gene
+			gene_variant_rows[gene_tissue_name] = vi_cache[combined_vi_file].get(gene_name, [])
 
 			# Add information to global arrays
 			gene_tissue_names.append(gene_tissue_name)
 			gene_names.append(gene_name)
 			tissue_names.append(tissue_name)
 			gene_coords.append(gene_coord)
-			gene_variant_info_files.append(gene_variant_info_file)
-			susie_mu_files.append(gene_susie_mu_file)
-			susie_mu_var_files.append(gene_susie_mu_var_file)
-			susie_alpha_files.append(gene_susie_alpha_file)
-			susie_pmces_files.append(gene_susie_pmces_file)
+			combined_susie_files.append(combined_susie_file)
+			combined_vi_files.append(combined_vi_file)
 		g.close()
 	f.close()
-
 
 	# Add to gene data object
 	gene_data_obj['gene_tissue_pairs'] = np.asarray(gene_tissue_names)
 	gene_data_obj['genes'] = np.asarray(gene_names)
 	gene_data_obj['tissues'] = np.asarray(tissue_names)
 	gene_data_obj['gene_coord'] = np.asarray(gene_coords)
-	gene_data_obj['gene_variant_info_files'] = np.asarray(gene_variant_info_files)
-	gene_data_obj['susie_mu_files'] = np.asarray(susie_mu_files)
-	gene_data_obj['susie_mu_var_files'] = np.asarray(susie_mu_var_files)
-	gene_data_obj['susie_alpha_files'] = np.asarray(susie_alpha_files)
-	gene_data_obj['susie_pmces_files'] = np.asarray(susie_pmces_files)
+	gene_data_obj['combined_susie_files'] = np.asarray(combined_susie_files)
+	gene_data_obj['combined_vi_files'] = np.asarray(combined_vi_files)
+	gene_data_obj['gene_variant_rows'] = gene_variant_rows
 
 	return gene_data_obj
 
@@ -356,6 +359,37 @@ def create_gene_index_to_window_index_mapping(variant_to_window_index, variant_t
 
 	return np.asarray(gene_to_window), np.asarray(flips), np.asarray(valid_indices)
 
+def create_gene_index_to_window_index_mapping_from_rows(variant_to_window_index, variant_to_allele_mapping, gene_rows):
+	"""
+	gene_rows: list of [chr, rsid, cm, pos, a0, a1] lists (already filtered to one gene).
+	Returns the same tuple as create_gene_index_to_window_index_mapping.
+	"""
+	gene_to_window = []
+	flips = []
+	valid_indices = []
+
+	for row_idx, row in enumerate(gene_rows):
+		eqtl_variant_name = row[1]   # rsid
+		eqtl_variant_a1   = row[4]   # a0 (effect allele)
+		eqtl_variant_a2   = row[5]   # a1
+
+		if eqtl_variant_name not in variant_to_window_index:
+			continue
+
+		valid_indices.append(row_idx)
+		gene_to_window.append(variant_to_window_index[eqtl_variant_name])
+
+		gwas_a1, gwas_a2 = variant_to_allele_mapping[eqtl_variant_name]
+		if gwas_a1 == eqtl_variant_a1 and gwas_a2 == eqtl_variant_a2:
+			flips.append(1.0)
+		elif gwas_a1 == eqtl_variant_a2 and gwas_a2 == eqtl_variant_a1:
+			flips.append(-1.0)
+		else:
+			print('Error in variant mapping: alleles dont line up')
+			pdb.set_trace()
+
+	return np.asarray(gene_to_window), np.asarray(flips), np.asarray(valid_indices)
+
 def create_window_level_susie_no_flips(gene_local_to_global_mapping, local_susie_data, num_global_variants):
 	global_susie_data = np.zeros((local_susie_data.shape[0], num_global_variants))
 	global_susie_data[:, gene_local_to_global_mapping] = local_susie_data
@@ -415,30 +449,32 @@ def prepare_tgfm_data_in_a_single_window(window_name, window_start, window_end, 
 	window_gene_tissue_pairs = gene_data_obj['gene_tissue_pairs'][window_gene_tissue_indices]
 	window_gene_names = gene_data_obj['genes'][window_gene_tissue_indices]
 	window_tissue_names = gene_data_obj['tissues'][window_gene_tissue_indices]
-	window_gene_variant_info_files = gene_data_obj['gene_variant_info_files'][window_gene_tissue_indices]
-	window_gene_susie_mu_files = gene_data_obj['susie_mu_files'][window_gene_tissue_indices]
-	window_gene_susie_mu_var_files = gene_data_obj['susie_mu_var_files'][window_gene_tissue_indices]
-	window_gene_susie_alpha_files = gene_data_obj['susie_alpha_files'][window_gene_tissue_indices]
-
+	window_gene_combined_susie_files = gene_data_obj['combined_susie_files'][window_gene_tissue_indices]
 
 	# Initialize arrays to keep track of eqtl-susie data
 	pmces_arr = []
 	gene_variances = []
 	posterior_samples_arr = []
 
+	npz_cache = {}  # combined_susie_file -> loaded NpzFile (avoid re-loading per gene)
 
 	# Loop through gene-tissue pairs
 	for gene_tissue_index, gene_tissue_name in enumerate(window_gene_tissue_pairs):
-		print(f"Processing gene-tissue pair {gene_tissue_name} with file: {window_gene_variant_info_files[gene_tissue_index]}")
+		gene_name = window_gene_names[gene_tissue_index]
+		combined_susie_file = window_gene_combined_susie_files[gene_tissue_index]
+		print(f"Processing gene-tissue pair {gene_tissue_name} from {combined_susie_file}")
 
-		# Load in SuSiE eQTL gene model for this gene-tissue pair
-		gene_tissue_susie_mu = np.load(window_gene_susie_mu_files[gene_tissue_index])
-		gene_tissue_susie_mu_var = np.load(window_gene_susie_mu_var_files[gene_tissue_index])
-		gene_tissue_susie_alpha = np.load(window_gene_susie_alpha_files[gene_tissue_index])
+		# Load combined npz (cached) and extract this gene's arrays
+		if combined_susie_file not in npz_cache:
+			npz_cache[combined_susie_file] = np.load(combined_susie_file)
+		npz = npz_cache[combined_susie_file]
+		gene_tissue_susie_mu    = npz[gene_name + '__mu']
+		gene_tissue_susie_mu_var = npz[gene_name + '__mu_var']
+		gene_tissue_susie_alpha = npz[gene_name + '__alpha']
 
-		# Align gene variants with window variants
-		gene_variant_info_file = window_gene_variant_info_files[gene_tissue_index]
-		gene_index_to_window_index_mapping, gene_sign_flips, valid_indices = create_gene_index_to_window_index_mapping(variant_to_window_index, variant_to_allele_mapping, gene_variant_info_file)
+		# Align gene variants with window variants using pre-loaded rows
+		gene_rows = gene_data_obj['gene_variant_rows'][gene_tissue_name]
+		gene_index_to_window_index_mapping, gene_sign_flips, valid_indices = create_gene_index_to_window_index_mapping_from_rows(variant_to_window_index, variant_to_allele_mapping, gene_rows)
 
 		# Subset susie eQTL gene model to valid columns (overlapped with GWAS data)
 		gene_tissue_susie_alpha = gene_tissue_susie_alpha[:,valid_indices]
