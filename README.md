@@ -1,6 +1,6 @@
 # Tissue-Gene Fine-Mapping (TGFM)
 
-TGFM is a package to fine-map causal tissues and genes at disease-associated loci based on the integration of GWAS dat and multi-tissue-eQTL data. See paper here:
+TGFM is a package to fine-map causal tissues and genes at disease-associated loci based on the integration of GWAS data and multi-tissue-eQTL data. See paper here:
 
 [Benjamin J. Strober, Martin Jinye Zhang, Tiffany Amariuta, Jordan Rossen, Alkes L. Price. Fine-mapping causal tissues and genes at disease-associated loci. Nature Genetics, 2025.](https://www.nature.com/articles/s41588-024-01994-2)
 
