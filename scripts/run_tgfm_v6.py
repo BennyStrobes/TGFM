@@ -3,7 +3,8 @@ import numpy as np
 import os 
 import pdb
 import pickle
-import tgfm
+sys.path.append('/lustre/scratch127/humgen/projects_v2/sc-eqtl-ibd/analysis/bradley_analysis/IBDverse/TGFM')
+import tgfm_nan_update_v2 as tgfm
 import rpy2
 import rpy2.robjects.numpy2ri as numpy2ri
 import rpy2.robjects as ro
@@ -505,6 +506,8 @@ for window_iter in range(n_windows):
 	tgfm_data['gwas_sample_size'] = gwas_sample_size
 	del tgfm_gwas_data
 
+	tgfm_data['window_name'] = window_name
+	tgfm_data['trait_name'] = args.trait_name
 
 	# Load in variant LD
 	tgfm_data['reference_ld'] = np.load(ld_file)

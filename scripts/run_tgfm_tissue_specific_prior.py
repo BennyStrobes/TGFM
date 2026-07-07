@@ -397,6 +397,7 @@ def update_prior_prob_for_variant_gene_tissue_bootstrapped(component_level_abf_s
 	# Loop through components
 	head_count = 0
 	prev_window_name = 'NULL'
+	alpha_mats = []
 	f = open(component_level_abf_summary_file)
 	for line in f:
 
@@ -465,6 +466,10 @@ def update_prior_prob_for_variant_gene_tissue_bootstrapped(component_level_abf_s
 	# This is the same code as above following: prev_window_name != 'NULL':
 	# The reason here is we need to tally results from the last window
 	# Need to fix so not copied code
+
+	if prev_window_name == 'NULL':
+		# No data rows in file — return priors unchanged
+		return variant_prob_distr, tissue_probs_distr
 
 	# Compute pips of all genetic elements in the window
 	expected_pips = compute_expected_pips(alpha_mats)
