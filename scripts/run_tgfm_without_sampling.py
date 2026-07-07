@@ -310,6 +310,12 @@ for window_iter in range(n_windows):
 	tgfm_data['gwas_sample_size'] = gwas_sample_size
 	del tgfm_gwas_data
 
+	# Skip windows where no gene-tissue pairs survived variant overlap filtering
+	if tgfm_data['gene_eqtl_pmces'].ndim < 2 or tgfm_data['gene_eqtl_pmces'].shape[0] == 0:
+		print(f'window {window_name} skipped: no valid gene-tissue pairs (empty gene_eqtl_pmces)')
+		t_pip.write(window_name + '\tNA\tNA\n')
+		continue
+
 	# Load in LD
 	ld_mat = np.load(ld_file)
 

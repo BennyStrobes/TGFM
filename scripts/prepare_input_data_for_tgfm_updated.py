@@ -357,7 +357,7 @@ def create_gene_index_to_window_index_mapping(variant_to_window_index, variant_t
 	print("valid entries in the gene variant info file: ", valid_lines_count)
 	print("skipped lines in the gene variant info file: ", skipped_lines_count)
 
-	return np.asarray(gene_to_window), np.asarray(flips), np.asarray(valid_indices)
+	return np.asarray(gene_to_window, dtype=int), np.asarray(flips), np.asarray(valid_indices, dtype=int)
 
 def create_gene_index_to_window_index_mapping_from_rows(variant_to_window_index, variant_to_allele_mapping, gene_rows):
 	"""
@@ -388,7 +388,7 @@ def create_gene_index_to_window_index_mapping_from_rows(variant_to_window_index,
 			print('Error in variant mapping: alleles dont line up')
 			pdb.set_trace()
 
-	return np.asarray(gene_to_window), np.asarray(flips), np.asarray(valid_indices)
+	return np.asarray(gene_to_window, dtype=int), np.asarray(flips), np.asarray(valid_indices, dtype=int)
 
 def create_window_level_susie_no_flips(gene_local_to_global_mapping, local_susie_data, num_global_variants):
 	global_susie_data = np.zeros((local_susie_data.shape[0], num_global_variants))
@@ -476,6 +476,10 @@ def prepare_tgfm_data_in_a_single_window(window_name, window_start, window_end, 
 		gene_rows = gene_data_obj['gene_variant_rows'][gene_tissue_name]
 		gene_index_to_window_index_mapping, gene_sign_flips, valid_indices = create_gene_index_to_window_index_mapping_from_rows(variant_to_window_index, variant_to_allele_mapping, gene_rows)
 
+		if len(valid_indices) == 0:
+			print(f"Skipping {gene_tissue_name}: no variants overlap with GWAS window")
+			continue
+
 		# Subset susie eQTL gene model to valid columns (overlapped with GWAS data)
 		gene_tissue_susie_alpha = gene_tissue_susie_alpha[:,valid_indices]
 		gene_tissue_susie_mu = gene_tissue_susie_mu[:,valid_indices]
@@ -535,11 +539,15 @@ def prepare_tgfm_data_in_a_single_window(window_name, window_start, window_end, 
 		posterior_samples_arr.append((sampled_standardized_effects, gene_index_to_window_index_mapping))
 	
 
+	# If every gene-tissue pair was skipped (no GWAS variant overlap), treat as no-gene window
+	if len(pmces_arr) == 0:
+		return {}, False
+
 	######################
 	# The sampled effects are very, very sparse
 	# For sake of memory, save the samples in a sparse format
 	# The sparse format is as follows:
-	######################	
+	######################
 	sparse_sampled_gene_eqtl_pmces = []
 	for sample_iter in range(num_posterior_samples):
 		eqtl_mat = []
@@ -604,12 +612,18 @@ def extract_window_gwas_beta_and_gwas_beta_se(ld_variant_info_file, gwas_data_ob
 		variant_a1 = data2[4]
 		variant_a2 = data2[5]
 
-		gwas_index = gwas_data_obj['variant_to_index'][variant_name]
+		gwas_index = gwas_data_obj['variant_to_index'].get(variant_name)
 		tmp_beta_arr = []
 		tmp_beta_var_arr = []
-		for trait_name in gwas_data_obj['gwas_trait_names']:
-			tmp_beta_arr.append(gwas_data_obj['trait_sumstat'][trait_name]['beta'][gwas_index])
-			tmp_beta_var_arr.append(gwas_data_obj['trait_sumstat'][trait_name]['beta_var'][gwas_index])
+		n_traits = len(gwas_data_obj['gwas_trait_names'])
+		if gwas_index is None:
+			print(f"Warning: variant {variant_name} not found in GWAS data; setting beta=0, beta_se=1e10")
+			tmp_beta_arr = [0.0] * n_traits
+			tmp_beta_var_arr = [1e20] * n_traits
+		else:
+			for trait_name in gwas_data_obj['gwas_trait_names']:
+				tmp_beta_arr.append(gwas_data_obj['trait_sumstat'][trait_name]['beta'][gwas_index])
+				tmp_beta_var_arr.append(gwas_data_obj['trait_sumstat'][trait_name]['beta_var'][gwas_index])
 		gwas_beta.append(np.asarray(tmp_beta_arr))
 		gwas_beta_var.append(np.asarray(tmp_beta_var_arr))
 	g.close()
@@ -727,7 +741,12 @@ for line in f:
 	ld_variant_info_file = data[5]  # Plink bim file corresponding to snps making up the ld file (and their ordering)
 
 	print(window_name)
-	
+
+	# Skip windows where LD files were never generated
+	if not os.path.isfile(window_ld_file) or not os.path.isfile(ld_variant_info_file):
+		print(f'Window {window_name} skipped: LD file missing ({window_ld_file})')
+		continue
+
 	# Load in LD
 	LD = np.load(window_ld_file)
 

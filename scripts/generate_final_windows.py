@@ -27,9 +27,17 @@ def process_chromosome(chromosome, window_input_dir, npy_dir, variant_info_dir, 
     df["LD_matrix"]         = df["window_name"].apply(lambda x: os.path.join(npy_dir,         f"{x}_ld.npy"))
     df["variant_info_file"] = df["window_name"].apply(lambda x: os.path.join(variant_info_dir, f"{x}_variant_info.txt"))
 
+    n_before = len(df)
+    missing = ~df["LD_matrix"].apply(os.path.isfile) | ~df["variant_info_file"].apply(os.path.isfile)
+    if missing.any():
+        print(f"Chromosome {chromosome}: WARNING — {missing.sum()} windows have missing LD/variant files and will be excluded:")
+        for w in df.loc[missing, "window_name"]:
+            print(f"  {w}")
+        df = df[~missing]
+
     os.makedirs(output_dir, exist_ok=True)
     df.to_csv(final_output, sep="\t", index=False)
-    print(f"Chromosome {chromosome}: {len(df)} windows written to {final_output}")
+    print(f"Chromosome {chromosome}: {len(df)}/{n_before} windows written to {final_output}")
 
 
 if __name__ == "__main__":

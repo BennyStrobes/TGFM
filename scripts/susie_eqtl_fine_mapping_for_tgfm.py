@@ -303,7 +303,7 @@ def run_susie_eqtl_fine_mapping_with_eqtl_summary_stats(gwas_variants, eqtl_sums
 			vi.write('gene\tchr\trsid\tcm\tpos\ta0\ta1\n')
 			for gene, data in accumulated.items():
 				for row in data['variant_rows']:
-					vi.write('\t'.join(row) + '\n')
+					vi.write(gene + '\t' + '\t'.join(row) + '\n')
 
 	# Write gene summary (2 file columns instead of 5)
 	output_summary_file = output_stem + '_chr' + str(chrom_num) + '_gene_summary.txt'
@@ -421,7 +421,7 @@ def run_susie_eqtl_fine_mapping_with_individual_data(gwas_variants, expression_f
 			vi.write('gene\tchr\trsid\tcm\tpos\ta0\ta1\n')
 			for gene, data in accumulated.items():
 				for row in data['variant_rows']:
-					vi.write('\t'.join(row) + '\n')
+					vi.write(gene + '\t' + '\t'.join(row) + '\n')
 
 	# Write gene summary (2 file columns instead of 5)
 	output_summary_file = output_stem + '_chr' + str(chrom_num) + '_gene_summary.txt'
